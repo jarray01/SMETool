@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+  <aside id="gauche" th:fragment="gauche">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+   
+       <div></div>
+            <div align="center" >
+           
+               <!--  <a href="index.html"><img src="assets/images/logo/logosmesys.png" width="100" height="200"></a>--> 
+            <a  href="/">  <p><img src="/assets/images/logo/logosmesys.png" alt="Example" width="153" height="100"></p></a>
+               <a  href="/"> <span><h2>SMESys</h2></span></a>
+              
+            </div>
+            <div class="toggler">
+                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+            </div>
+   
+    
+    <div class="sidebar-menu">
+        <ul class="menu">
+            <li class="sidebar-title"><h4>Menu</h4></li>
+            
+            <li
+                class="sidebar-item">
+                <a href="/input/add" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span><h4>Input data </h4></span>
+                </a>
+            </li>
+            
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span><h4>Data Visualization</h4> </span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="/shape/afficherfin"><h4>Map</h4></a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="component-badge.html"><h4>Chart</h4></a>
+                    </li>  
+                </ul>
+            </li> 
+            
+              <li
+                class="sidebar-item ">
+                <a href="index.html" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span><h4>Models</h4></span>
+                </a>
+            </li>
+            
+              <li
+                class="sidebar-item ">
+                <a href="index.html" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span><h4>Study Area</h4></span>
+                </a>
+            </li>
+              <li
+                class="sidebar-item ">
+                <a href="index.html" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span><h4>Users</h4></span>
+                </a>
+            </li>  
+        </ul>
+    </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+</div>
+        </div>
+        </aside>
+</body>
+</html>

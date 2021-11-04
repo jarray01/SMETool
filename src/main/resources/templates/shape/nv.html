@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMESys</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    
+<link rel="stylesheet" href="/assets/vendors/iconly/bold.css">
+
+    <link rel="stylesheet" href="/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="shortcut icon" href="/assets/images/favicon.svg" type="image/x-icon">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+        <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.3.0"></script>
+  
+</head>
+
+<body>
+    <div id="app">
+  <aside th:replace="gauche :: gauche">...</aside>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            
+<div class="page-heading">
+    <h3>SMESys input data</h3>
+</div>
+<div class="page-content">
+    <section class="row">
+         <div class="col-5 col-lg-5">
+            <div class="row">
+             <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Select filter data</h4>
+                    </div>
+                <div class="card-content">
+                        <div class="card-body">
+               <form   class="form-horizontal form-label-left"  th:action ="@{/shape/requetteresultatssff}"  action="#" method="post" >
+                  <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" ><h6>Model:</h6></label>
+                        <div class="col-md-6 col-sm-9 col-xs-12">
+                         <select class="form-control" id="modelId" name="modelId">
+						    <option value="" selected="selected">N/A</option>
+						    <option th:each="roleOpt : ${listemodels}" 
+						         th:value="${roleOpt.id}" 
+						         th:text="${roleOpt.descriptionm}"></option>
+				  		 </select>
+                        </div>
+                        </div>
+                         <div class="form-group">
+                         <label class="control-label col-md-3 col-sm-3 col-xs-12" ><h6>Study Area:</h6></label>
+                          <div class="col-md-6 col-sm-9 col-xs-12">
+                         <select class="form-control" id="studyId" name="studyId">
+						    <option value="" selected="selected">N/A</option>
+						    <option th:each="roleOpt : ${listesa}" 
+						         th:value="${roleOpt.id}" 
+						         th:text="${roleOpt.name}"></option>
+						         
+				  		 </select>
+                        </div>
+                        </div>
+                     
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"><h6>Date:</h6></label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="date" class="form-control" id="datecarte" name="datecarte" ></input>
+                        </div>
+                      </div>    
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success">Submit</button>
+                          <button type="reset" class="btn btn-primary">Reset</button>
+                        </div>
+                      </div>
+
+                    </form >
+                    </div></div>
+                    </div>
+                       <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Result</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                           
+                            <!-- Table with outer spacing -->
+                            <div class="table-responsive">
+                                <table class="table table-lg">
+                                    <thead>
+                                        <tr>
+                                           <th>Name</th>
+				                           <th>ML model</th>
+				                          <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                         <tr th:each="shape : ${listerasters}">
+			                     <td th:text="${shape.nom}"></td>
+			                     <td th:text="${shape.modele.descriptionm}"></td>
+			                     
+			                    <td>  
+			               <a ><span class="bi bi-map" aria-hidden="true" th:onclick="'afficherraster(\'' + ${shape.description}+ '\', \'' + ${shape.nom}+ '\', \'' + ${shape.x1}+ '\', \'' + ${shape.x2}+ '\', \'' + ${shape.y1}+ '\', \'' + ${shape.y2} + '\');'"></span></a>
+			                    
+			                    </td>
+			                </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    
+                   
+            </div>
+            </div>
+       
+      <div class="col-7 col-lg-7">
+            <div class="row">
+             <div id="mymap" class="col-md-12" style="height:700px;"></div>
+        <script type="text/javascript">
+            var layer = new L.StamenTileLayer("terrain");
+            var map = new L.Map("mymap", {
+                /* Center: Munich, Germany */
+                center: new L.LatLng(33.3442960191357 , 10.48919677734375),
+                /* Show most of western Europe */
+                zoom: 5
+            });
+            map.addLayer(layer);
+            //define Drawing toolbar options
+              
+            function afficherraster(desc,name,x1,x2,y1,y2){
+
+                       	var imageUrl = desc + '/'+ name +'.png';
+                        	var bounds = new L.LatLngBounds (
+                        			  new L.LatLng(x1, y1),
+                        			  new L.LatLng(x2, y2));
+                        	L.imageOverlay(imageUrl, bounds).addTo(map);
+                   		  var imageOverlay = L.imageOverlay(imageUrl, bounds);
+                        
+                   	
+
+                   		var overlays = {
+                   				Name : imageOverlay
+                   			};
+
+                   			L.control.layers(overlays).addTo(map);
+                   	
+                   	
+                        	
+             } 
+ 
+            L.Control.Watermark = L.Control.extend({
+                onAdd: function(map) {
+                    var img = L.DomUtil.create('img');
+
+                    img.src = '/assets/images/legende.png';
+                    img.style.width = '150px';
+
+                    return img;
+                },
+
+                onRemove: function(map) {
+                    // Nothing to do here
+                }
+            });
+            L.control.watermark = function(opts) {
+                return new L.Control.Watermark(opts);
+            }
+
+            L.control.watermark({ position: 'bottomright' }).addTo(map);
+        </script>
+            </div> 
+        </div>
+        <!--  
+        <div class="col-12 col-lg-12">
+            <div class="row">
+          
+            </div> 
+        </div>-->
+      
+       
+       
+    </section>
+</div>
+
+           <aside th:replace="footer :: footer">...</aside>
+        </div>
+    </div>
+    <script src="/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    
+<script src="/assets/vendors/apexcharts/apexcharts.js"></script>
+<script src="/assets/js/pages/dashboard.js"></script>
+
+    <script src="/assets/js/mazer.js"></script>
+    
+    
+   
+   
+</body>
+
+</html>
