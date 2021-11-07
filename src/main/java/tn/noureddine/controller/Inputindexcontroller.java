@@ -25,7 +25,6 @@ import tn.noureddine.dao.Idataindexdao;
 import tn.noureddine.dao.Iindexdao;
 import tn.noureddine.dao.Istudyareadao;
 import tn.noureddine.entity.Dataindex;
-import tn.noureddine.entity.Document;
 import tn.noureddine.entity.Index;
 import tn.noureddine.entity.Studyarea;
 

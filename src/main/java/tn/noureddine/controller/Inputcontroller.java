@@ -1,5 +1,8 @@
 package tn.noureddine.controller;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,22 +20,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import tn.noureddine.config.Role;
 import tn.noureddine.config.Utilisateur;
-import tn.noureddine.dao.Iauteurdao;
-import tn.noureddine.dao.Idocumentdao;
-import tn.noureddine.dao.Itypdocumentdao;
-import tn.noureddine.entity.Auteur;
-import tn.noureddine.entity.Document;
-import tn.noureddine.entity.Typedocument;
 
 @Controller
 @RequestMapping("/input")
 public class Inputcontroller {
-	@Autowired
-	Idocumentdao docdao;
-
-	public void setDocdao(Idocumentdao docdao) {
-		this.docdao = docdao;
-	}
 	
 	
 	@RequestMapping(value = "/add")
@@ -41,7 +32,34 @@ public class Inputcontroller {
 		return "input/inputselect";
 	}
 
-	
+	@RequestMapping(value = "/process")
+	public String inputpro(Model model, @RequestParam("Coord1") String Coord1, @RequestParam("Coord2") String Coord2,
+			@RequestParam("Coord3") String Coord3, @RequestParam("Coord4") String Coord4,
+			@RequestParam("datedeb") Date datedeb, @RequestParam("datefin") Date datefin,
+			@RequestParam("datevisua") String datevisua) throws IOException {
+		//model.addAttribute("user", new Utilisateur());
+		String pathPython = "/scripts/PipelineSentinel.py";
+		String[] cmd = new String[9];
+		cmd[0] = "python";
+		cmd[1] = pathPython;
+		cmd[2] = Coord1;
+		cmd[3] = Coord2;
+		cmd[4] = Coord3;
+		cmd[5] = Coord4;
+		cmd[6] = datedeb.toString();
+		cmd[7] = datefin.toString();
+		cmd[8] = datevisua;
+		Runtime r = Runtime.getRuntime();
+		Process p = r.exec(cmd);
+		BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		String s;
+		while ((s = in.readLine()) != null) {
+			System.out.println(s);
+		}
+		
+		return "input/inputselect";
+	}
+
 
 
 

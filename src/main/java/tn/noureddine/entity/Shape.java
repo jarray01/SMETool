@@ -27,18 +27,12 @@ public class Shape {
 	private Double  y1;
 	private Double  y2;
 	
-	@ManyToOne
-	@JoinColumn(name="id_g",columnDefinition = "Integer")
-	private Gouvernorat gouv;
+	
 	@ManyToOne
 	@JoinColumn(name="iduser",columnDefinition = "Integer")
 	private Utilisateur user;
-	@ManyToOne
-	@JoinColumn(name="id_theme",columnDefinition = "Integer")
-	private Theme theme;
-	@ManyToOne
-	@JoinColumn(name="id_etat",columnDefinition = "Integer")
-	private Etat etat;
+	
+
 	@ManyToOne
 	@JoinColumn(name="id_model",columnDefinition = "Integer")
 	private Modele modele;
@@ -51,7 +45,7 @@ public class Shape {
 	}
 	
 	public Shape(Integer id, String nom, String description, Date datecreation, Date datemiseajour, String copyright,
-			Double x1, Double x2, Double y1, Double y2, Gouvernorat gouv, Utilisateur user, Theme theme, Etat etat,
+			Double x1, Double x2, Double y1, Double y2,  Utilisateur user,
 			Modele modele, Studyarea study) {
 		super();
 		this.id = id;
@@ -64,10 +58,8 @@ public class Shape {
 		this.x2 = x2;
 		this.y1 = y1;
 		this.y2 = y2;
-		this.gouv = gouv;
 		this.user = user;
-		this.theme = theme;
-		this.etat = etat;
+	
 		this.modele = modele;
 		this.study = study;
 	}
@@ -108,30 +100,14 @@ public class Shape {
 	public void setCopyright(String copyright) {
 		this.copyright = copyright;
 	}
-	public Gouvernorat getGouv() {
-		return gouv;
-	}
-	public void setGouv(Gouvernorat gouv) {
-		this.gouv = gouv;
-	}
+
 	public Utilisateur getUser() {
 		return user;
 	}
 	public void setUser(Utilisateur user) {
 		this.user = user;
 	}
-	public Theme getTheme() {
-		return theme;
-	}
-	public void setTheme(Theme theme) {
-		this.theme = theme;
-	}
-	public Etat getEtat() {
-		return etat;
-	}
-	public void setEtat(Etat etat) {
-		this.etat = etat;
-	}
+	
 	
 	public Double getX1() {
 		return x1;

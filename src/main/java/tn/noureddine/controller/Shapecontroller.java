@@ -1,12 +1,8 @@
 package tn.noureddine.controller;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,25 +15,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import tn.noureddine.config.IUtilisateurdao;
 import tn.noureddine.dao.IShapedao;
-import tn.noureddine.dao.Igouvernoratdao;
+
 import tn.noureddine.dao.Imodeldao;
 import tn.noureddine.dao.Istudyareadao;
-import tn.noureddine.dao.Ithemedao;
-import tn.noureddine.entity.Gouvernorat;
+
 import tn.noureddine.entity.Modele;
 import tn.noureddine.entity.Shape;
 import tn.noureddine.entity.Studyarea;
-import tn.noureddine.entity.Theme;
 
 @Controller
 @RequestMapping("/shape")
 public class Shapecontroller {
 	@Autowired
 	IShapedao shapedao;
-	@Autowired
-	Igouvernoratdao gouvdao;
-	@Autowired
-	Ithemedao themedao;
+
 	@Autowired
 	IUtilisateurdao userdao;
 	@Autowired
@@ -50,17 +41,12 @@ public class Shapecontroller {
 		this.userdao = userdao;
 	}
 
-	public void setGouvdao(Igouvernoratdao gouvdao) {
-		this.gouvdao = gouvdao;
-	}
-
+	
 	public void setShapedao(IShapedao shapedao) {
 		this.shapedao = shapedao;
 	}
 
-	public void setThemedao(Ithemedao themedao) {
-		this.themedao = themedao;
-	}
+	
 	public void setModeldao(Imodeldao modeldao) {
 		this.modeldao = modeldao;
 	}
@@ -99,54 +85,14 @@ public class Shapecontroller {
 		return "/shape/requettespatiale";
 	}
 
-	@RequestMapping(value = "/simplerequest", method = RequestMethod.GET)
-	public String pagereqsimple(Model m) {
-		m.addAttribute("shape", new Shape());
-		List<Shape> listeshapes = (List<Shape>) shapedao.findAll();
-		m.addAttribute("listeshapes", listeshapes);
-		List<Gouvernorat> listegouv = (List<Gouvernorat>) gouvdao.findAll();
-		m.addAttribute("listegouv", listegouv);
-		return "/shape/requettesimple";
-	}
 
-	@RequestMapping(value = "/simplerequest/{id}", method = RequestMethod.GET)
-	public String pagesimplr(Model m, @PathVariable Integer id) {
-		// m.addAttribute("shape", new Shape());
-		List<Shape> listeshapes = (List<Shape>) shapedao.getshapebygouv(id);
-		m.addAttribute("listeshapes", listeshapes);
-		List<Gouvernorat> listegouv = (List<Gouvernorat>) gouvdao.findAll();
-		m.addAttribute("listegouv", listegouv);
-		return "/shape/requettesimple";
 
-	}
+	
 
-	@RequestMapping(value = "/simplerequestpartheme", method = RequestMethod.GET)
-	public String pagereqsimpletheme(Model m) {
-		m.addAttribute("shape", new Shape());
-		List<Shape> listeshapes = (List<Shape>) shapedao.findAll();
-		m.addAttribute("listeshapes", listeshapes);
-		List<Theme> listetheme = (List<Theme>) themedao.findAll();
-		m.addAttribute("listetheme", listetheme);
-		return "/shape/requettesimplepartheme";
-	}
 
-	@RequestMapping(value = "/simplerequestpartheme/{id}", method = RequestMethod.GET)
-	public String pagesimplrptheme(Model m, @PathVariable Integer id) {
-		// m.addAttribute("shape", new Shape());
-		List<Shape> listeshapes = (List<Shape>) shapedao.getshapebytheme(id);
-		m.addAttribute("listeshapes", listeshapes);
-		List<Theme> listetheme = (List<Theme>) themedao.findAll();
-		m.addAttribute("listetheme", listetheme);
-		return "/shape/requettesimplepartheme";
+	
 
-	}
-
-	@RequestMapping(value = "/spacerequest", method = RequestMethod.GET)
-	public String pagereqspace(Model m) {
-		List<Shape> listeshapes = (List<Shape>) shapedao.findAll();
-		m.addAttribute("listeshapes", listeshapes);
-		return "/shape/requettespatiale";
-	}
+	
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String pagesupprimer(Model m, @PathVariable Integer id) {
@@ -161,17 +107,7 @@ public class Shapecontroller {
 		return "/shape/modifshape";
 	}
 
-	@RequestMapping(value = "/add")
-	public String add(Model model) {
-		model.addAttribute("shape", new Shape());
-		List<Gouvernorat> listegouvs = (List<Gouvernorat>) gouvdao.findAll();
-		model.addAttribute("listegouvs", listegouvs);
-		List<Theme> listethemes = (List<Theme>) themedao.findAll();
-		model.addAttribute("listethemes", listethemes);
-		// Utilisateur user = new Utilisateur();
-		// user= userdao.findUserByName("[[${#httpServletRequest.remoteUser}]]");
-		return "/shape/addshape";
-	}
+
 
 	@RequestMapping(value = "/saveshape", method = RequestMethod.POST)
 	public String save(Model model, @ModelAttribute("shape") Shape shape) {

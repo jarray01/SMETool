@@ -14,7 +14,6 @@ import tn.noureddine.dao.Imodeldao;
 import tn.noureddine.dao.Istudyareadao;
 import tn.noureddine.entity.Modele;
 import tn.noureddine.entity.Studyarea;
-import tn.noureddine.entity.Theme;
 
 @Controller
 @RequestMapping("/model")

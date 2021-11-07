@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import tn.noureddine.dao.Igouvernoratdao;
 import tn.noureddine.dao.Istudyareadao;
-import tn.noureddine.entity.Gouvernorat;
 import tn.noureddine.entity.Studyarea;
 @Controller
 @RequestMapping("/studyarea")
