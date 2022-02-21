@@ -8,3 +8,4 @@ Experiments werecarried out on two sites in Tunisia during the period from 2016 
 The CNN allowed obtaining the best results in terms of performance and precision, compared to other ML methods. 
 The achieved results reveal that the soil moisture,  was highly correlated to the in-situ measurements with high Pearson’s correlation coefficient R ( RRF= 0.86, RANN= 0.75, RXGBoost= 0.79,RCNN= 0.87 ) and low Root Mean Square Error (RMSE) (RMSERF= 1.09m3/m3, RMSEANN= 1.49 m3/m3, RMSEXGBoost= 1.39 m3/m3, RMSECNN=1.12 m3/m3), respectively.
 
+![methodo-software](https://user-images.githubusercontent.com/38008180/154925003-34d99c26-e7f0-4ecb-bf41-aec55e938973.png)
