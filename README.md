@@ -31,4 +31,4 @@ The requests sent and received by the user establish a link with several197proce
   ![resultats](https://user-images.githubusercontent.com/38008180/154928390-e444ebf1-2992-4bdc-ba05-7e296b214889.png)
 
 </ol>
-pour consulter le fichier python qui utilise les packages eolearn : src/main/resources/static/scripts
+To view the python file that uses the eolearn packages : src/main/resources/static/scripts
