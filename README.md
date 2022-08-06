@@ -31,5 +31,5 @@ The requests sent and received by the user establish a link with several197proce
   ![resultats](https://user-images.githubusercontent.com/38008180/154928390-e444ebf1-2992-4bdc-ba05-7e296b214889.png)
 
 </ol>
-To view ML techniques  files : https://github.com/jarray01/SMETool/tree/main/ML%20techniques <br>
-To view the python file that uses the eolearn packages : https://github.com/jarray01/SMETool/tree/main/Complete%20pipeline%20script
+ML techniques files can be found at : https://github.com/jarray01/SMETool/tree/main/ML%20techniques <br>
+The pipeline python file that uses the eolearn packages can be found at : https://github.com/jarray01/SMETool/tree/main/Complete%20pipeline%20script
