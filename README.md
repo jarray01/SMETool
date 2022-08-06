@@ -30,4 +30,4 @@ The requests sent and received by the user establish a link with several197proce
 
 </ol>
 To view the python file that uses the eolearn packages : https://github.com/jarray01/SMETool/tree/main/Complete%20pipeline%20script  <br> 
-To view the ML techniques scripts  files that uses the eolearn packages : https://github.com/jarray01/SMETool/tree/main/ML%20techniques
+To view the ML techniques scripts  files : https://github.com/jarray01/SMETool/tree/main/ML%20techniques
