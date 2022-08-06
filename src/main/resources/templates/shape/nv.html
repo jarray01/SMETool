@@ -24,6 +24,51 @@
         crossorigin=""></script>
         <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.3.0"></script>
   
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Season Start Date');
+      data.addColumn('number', 'Estimated Soil Moisture');
+      data.addColumn('number', 'Observed Soil Moisture');
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Season Start Date');
+      data.addColumn('number', 'Estimated Soil Moisture');
+      data.addColumn('number', 'Observed Soil Moisture');
+      var ourRequest = new XMLHttpRequest();
+      ourRequest.open('GET', 'http://localhost:8080/multiplelinechart')
+      ourRequest.onload = function() {
+        var data = JSON.parse(ourRequest.responseText).formNames;
+        console.log(data);
+
+      };
+      ourRequest.send();
+      var options = {
+        chart: {
+          title: 'Chart Area',
+          subtitle: ''
+        },
+        width: 1700,
+        height: 200,
+        axes: {
+          x: {
+            0: {side: 'bottom'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+    
+  </script>
 </head>
 
 <body>
@@ -51,7 +96,7 @@
                         <div class="card-body">
                <form   class="form-horizontal form-label-left"  th:action ="@{/shape/requetteresultatssff}"  action="#" method="post" >
                   <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" ><h5>Model:</h5></label>
+                        <label class="control-label col-md-6 col-sm-6 col-xs-12" ><h5>Machine Learning technique:</h5></label>
                         <div class="col-md-6 col-sm-9 col-xs-12">
                          <select class="form-control" id="modelId" name="modelId">
 						    <option value="" selected="selected">N/A</option>
@@ -115,7 +160,7 @@
 			                     
 			                    <td>  
 			               <a ><span class="bi bi-map" aria-hidden="true" th:onclick="'afficherraster(\'' + ${shape.description}+ '\', \'' + ${shape.nom}+ '\', \'' + ${shape.x1}+ '\', \'' + ${shape.x2}+ '\', \'' + ${shape.y1}+ '\', \'' + ${shape.y2} + '\');'"></span></a>
-			                    
+			                     
 			                    </td>
 			                </tr>
                                     </tbody>
@@ -142,8 +187,17 @@
                 zoom: 5
             });
             map.addLayer(layer);
+          
+            map.on('click', addMarker);
+          
             //define Drawing toolbar options
-              
+              function addMarker(e){
+            	 
+    // Add marker to map at click location; add popup window
+      var newMarker = new L.marker(e.latlng, {draggable:true}).addTo(map);
+    //  var popup = marker.bindPopup('<b>Hello world!</b><br />I am a popup.');
+      
+}
             function afficherraster(desc,name,x1,x2,y1,y2){
 
                        	var imageUrl = desc + '/'+ name +'.png';
@@ -182,7 +236,7 @@
             L.control.watermark = function(opts) {
                 return new L.Control.Watermark(opts);
             }
-
+          
             L.control.watermark({ position: 'bottomright' }).addTo(map);
         </script>
             </div> 
@@ -196,6 +250,28 @@
       
        
        
+    </section>
+    <section class="row">
+    <div class="col-12 col-lg-12">
+            <div class="row">
+             <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Chart</h4>
+                    </div>
+                <div class="card-content">
+                        <div class="card-body">
+              
+            <div id="line_top_x" ></div>
+              
+              
+                    </div>
+                    </div>
+                    </div>
+                     
+                    
+                   
+            </div>
+            </div>
     </section>
 </div>
 

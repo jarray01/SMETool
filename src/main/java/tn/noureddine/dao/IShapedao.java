@@ -24,12 +24,7 @@ public interface IShapedao extends CrudRepository<Shape, Integer> {
 		public String getnom( @Param("id") Integer id);
 		@Query(value ="SELECT a.geojson FROM listejson a",nativeQuery=true)
 		public String getgeo();
-		@Query("SELECT p from Shape p  where p.gouv.id = :id")
-		List<Shape> getshapebygouv (@Param(value ="id") Integer id);
-		@Query("SELECT p from Shape p  where p.theme.id = :id")
-		List<Shape> getshapebytheme (@Param(value ="id") Integer id);
-		@Query("SELECT p from Shape p  where p.id = :id")
-		Shape getshapebyid (@Param(value ="id") Integer id);
+	
 		@Query("SELECT p from Shape p  where p.nom = :nom")
 		Shape getshapebynom (@Param(value ="nom") Integer nom);
 		@Query(value ="SELECT string_agg(CONCAT('{\"type\":\"Feature\",\"geometry\":',st_asgeojson(ST_TRANSFORM(a.geom,4326)),'}'), ', ') AS geo FROM rfshp12012017rf a",nativeQuery=true )
@@ -39,12 +34,7 @@ public interface IShapedao extends CrudRepository<Shape, Integer> {
 		@Query(value ="insert into listejson (nom, json)   SELECT x=:nom, ( string_agg(CONCAT('{\\\"type\\\":\\\"Feature\\\",\\\"geometry\\\":',st_asgeojson(ST_TRANSFORM(x=:nom.geom,4326)),'}'), ', ') ) FROM x=:nom",nativeQuery=true )
 		public void insertlistgson(String nom);
 		
-		@Query(value ="SELECT string_agg(CONCAT('{\"type\":\"Feature\",\"geometry\":',st_asgeojson(ST_TRANSFORM(a.geom,4326)),'}'), ', ') AS geo FROM chammakh a",nativeQuery=true )
-		public String getjsonck();
-		@Query(value ="SELECT string_agg(CONCAT('{\"type\":\"Feature\",\"geometry\":',st_asgeojson(ST_TRANSFORM(a.geom,4326)),'}'), ', ') AS geo FROM dardhaoui a",nativeQuery=true )
-		public String getjsondd();
-		@Query(value ="SELECT string_agg(CONCAT('{\"type\":\"Feature\",\"geometry\":',st_asgeojson(ST_TRANSFORM(a.geom,4326)),'}'), ', ') AS geo FROM rf12012017rf a",nativeQuery=true )
-		public String getjsonrf();
+		
 		//@Query(value ="SELECT a.geojson FROM listejson a where a.nom ='chammakh'",nativeQuery=true)
 		//public String getjsonck();
 

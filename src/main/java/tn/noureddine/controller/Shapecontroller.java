@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import tn.noureddine.config.IUtilisateurdao;
 import tn.noureddine.dao.IShapedao;
-
+import tn.noureddine.dao.Idataindexdao;
 import tn.noureddine.dao.Imodeldao;
 import tn.noureddine.dao.Istudyareadao;
-
+import tn.noureddine.entity.Dataindex;
 import tn.noureddine.entity.Modele;
 import tn.noureddine.entity.Shape;
 import tn.noureddine.entity.Studyarea;
@@ -35,7 +35,11 @@ public class Shapecontroller {
 	Imodeldao modeldao;
 	@Autowired
 	Istudyareadao sadao;
-
+	@Autowired
+	Idataindexdao dataindex;
+		public void setDataindxe(Idataindexdao dataindex) {
+			this.dataindex = dataindex;
+		}
 
 	public void setUserdao(IUtilisateurdao userdao) {
 		this.userdao = userdao;
@@ -61,30 +65,8 @@ public class Shapecontroller {
 		return "/shape/nv";
 	}
 
-	@RequestMapping(value = "/lspatiale", method = RequestMethod.GET)
-	public String pagelspatiale(Model m, @RequestParam String name) {
-		List<Shape> ll = new ArrayList<Shape>();
-		Integer[] listeshapes = (Integer[]) shapedao.getlistespatiale(name);
-		for (int i = 0; i < listeshapes.length; i++) {
-			System.out.println(listeshapes[i]);
-			Shape s = (Shape) shapedao.getshapebyid(listeshapes[i]);
-			System.out.println(s.getDescription());
-			ll.add(s);
-		}
 
-		m.addAttribute("listeshapess", ll);
-
-		return "/shape/requettespatiale";
-		// return "";
-	}
-
-	@RequestMapping(value = "/spacequery", method = RequestMethod.GET)
-	public String pageliste1(Model m) {
-		List<Shape> listeshapes = (List<Shape>) shapedao.findAll();
-		m.addAttribute("listeshapes", listeshapes);
-		return "/shape/requettespatiale";
-	}
-
+	
 
 
 	
@@ -121,11 +103,7 @@ public class Shapecontroller {
 		return "redirect:/shape/list";
 	}
 
-	@RequestMapping(value = "/map", method = RequestMethod.GET)
-	public String pagemap() {
 
-		return "/shape/map";
-	}
 
 	@RequestMapping(value = "/affichermap", method = RequestMethod.GET)
 	public String pagemaps() {
@@ -185,7 +163,12 @@ public class Shapecontroller {
 		return "/shape/nv";
 	}
 	
-
+	@RequestMapping("/multiplelinechart")
+	public List<Dataindex>  getDataForMultipleLine() {
+		List<Dataindex> dataList = (List<Dataindex>) dataindex.findAll();
+	
+		return dataList;
+	}
 	
 
 }
