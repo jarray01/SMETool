@@ -1,16 +1,12 @@
 # SMETool
  <p align="justify">
  SMETool stands for Soil Moisture Estimation Tool. It is a complete open source and web based for soil moisture estimation  platform using Machine Learning methods and EO-Learn framework. It is a generic pipeline  for soil moisture estimation using earth observation data.
-
-<ul> It combine ML techniques, EO data and Eo-Learn library. </ul>
-<ul> It is  easily customizable and extensible thanks to a high number of adds-on and web services to integrate. </ul>
-
-<ul> It  offers mass import tools to help you being even more efficient soil moisture estimation task. </ul>
-
- <ul> It allows the user to access the web application through a web interface and use the map viewer to select any location in the study area  in order to make queries about the geographic database. </ul>
- 
- 
- 
+<ul>
+<li> It combine ML techniques, EO data and Eo-Learn library. </li>
+<li> It is  easily customizable and extensible thanks to a high number of adds-on and web services to integrate.</li>
+<li>It  offers mass import tools to help you being even more efficient soil moisture estimation task.</li>
+<li>It allows the user to access the web application through a web interface and use the map viewer to select any location in the study area  in order to make queries about the geographic database. </li>
+</ul>
  </p>
 
 ![methodo-software](https://user-images.githubusercontent.com/38008180/154925003-34d99c26-e7f0-4ecb-bf41-aec55e938973.png)
