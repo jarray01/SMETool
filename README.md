@@ -29,5 +29,5 @@ The requests sent and received by the user establish a link with several197proce
   ![resultats](https://user-images.githubusercontent.com/38008180/154928390-e444ebf1-2992-4bdc-ba05-7e296b214889.png)
 
 </ol>
-To view the python file that uses the eolearn packages : https://github.com/jarray01/SMETool/tree/main/Complete%20pipeline%20script
+To view the python file that uses the eolearn packages : https://github.com/jarray01/SMETool/tree/main/Complete%20pipeline%20script  <br> 
 To view the ML techniques scripts  files that uses the eolearn packages : https://github.com/jarray01/SMETool/tree/main/ML%20techniques
