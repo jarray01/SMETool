@@ -1,5 +1,4 @@
-# SMETool   &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  &ensp; &ensp; 
-![dataflow](https://github.com/jarray01/SMETool/blob/main/src/main/resources/static/assets/images/logo/logosmesys.png)
+# SMETool   &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; ![dataflow](https://github.com/jarray01/SMETool/blob/main/src/main/resources/static/assets/images/logo/logosmesys.png)
 
  <p align="justify">
  SMETool stands for Soil Moisture Estimation Tool. It is a complete open source and web based for soil moisture estimation  platform using Machine Learning methods and EO-Learn framework. It is a generic pipeline  for soil moisture estimation using earth observation data.
