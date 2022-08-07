@@ -1,15 +1,18 @@
-# SMETool
- <p align="justify"> Earth Observation (EO) technologies have played an increasingly importantrole in monitoring the Sustainable Development Goals (SDG). 
-These technologies often combined with Machine Learning (ML) models provide efficientmeans for achieving the SDGs. 
-The great progress of this combination is alsodemonstrated by the large number of software, web tools and packages thathave been made available for free use. 
-This paper presents a web-based tool for Soil Moisture Estimation (SMETool), designed for the soil moisture estimation using Sentinel-1A and Sentinel-2A data based on Eo-learn library. SMETool implements several ML techniques such as (Artificial Neural Net-work (ANN), Random Forest (RF), Convolutional Neural Network (CNN),etc.). 
-The SMETool could be very useful for decision makers in the region inassessing the effects of drought and desertification events.
-Experiments werecarried out on two sites in Tunisia during the period from 2016 to 2017. 
-The CNN allowed obtaining the best results in terms of performance and precision, compared to other ML methods. 
-The achieved results reveal that the soil moisture,  was highly correlated to the in-situ measurements with high Pearson’s correlation coefficient R ( RRF= 0.86, RANN= 0.75, RXGBoost= 0.79,RCNN= 0.87 ) and low Root Mean Square Error (RMSE) (RMSERF= 1.09m3/m3, RMSEANN= 1.49 m3/m3, RMSEXGBoost= 1.39 m3/m3, RMSECNN=1.12 m3/m3), respectively.</p>
+# SMETool   &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; ![dataflow](https://github.com/jarray01/SMETool/blob/main/src/main/resources/static/assets/images/logo/logosmesys.png)
+
+ <p align="justify">
+ SMETool stands for Soil Moisture Estimation Tool. It is a complete open source and web based for soil moisture estimation  platform using Machine Learning methods and EO-Learn framework. It is a generic pipeline  for soil moisture estimation using earth observation data.
+<ul>
+<li> It combine ML techniques, EO data and Eo-Learn library. </li>
+<li> The main workflow  has main data download and processing  functions  using EO-Learn library. </li>
+<li> It is  easily customizable and extensible thanks to a high number of adds-on and web services to integrate.</li>
+<li>It  offers mass import tools to help you being even more efficient soil moisture estimation task.</li>
+<li>It allows the user to access the web application through a web interface and use the map viewer to select any location in the study area  in order to make queries about the geographic database. </li>
+</ul>
+ </p>
 
 ![methodo-software](https://user-images.githubusercontent.com/38008180/154925003-34d99c26-e7f0-4ecb-bf41-aec55e938973.png)
-
+<center> SMETool development architecture, S-1A: Sentinel-1A images and S-2A: Sentinel-2A. </center>
 <ol>
   <li value="1"> SMETool data flow</li>
   ![dataflow](https://user-images.githubusercontent.com/38008180/154926477-386de055-a66e-458f-8442-b2516a7e2ac6.png)
@@ -31,4 +34,6 @@ The requests sent and received by the user establish a link with several197proce
   ![resultats](https://user-images.githubusercontent.com/38008180/154928390-e444ebf1-2992-4bdc-ba05-7e296b214889.png)
 
 </ol>
-To view the python file that uses the eolearn packages : src/main/resources/static/scripts
+ML techniques files can be found at : https://github.com/jarray01/SMETool/tree/main/ML%20techniques <br>
+The pipeline python file that uses the eolearn packages can be found at : https://github.com/jarray01/SMETool/tree/main/Complete%20pipeline%20script   <br>
+To see list of available web services, see  : https://github.com/jarray01/SMETool/blob/main/src/main/java/tn/noureddine/controller/Shapecontroller.java
