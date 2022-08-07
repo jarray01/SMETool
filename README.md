@@ -11,7 +11,7 @@
  </p>
 
 ![methodo-software](https://user-images.githubusercontent.com/38008180/154925003-34d99c26-e7f0-4ecb-bf41-aec55e938973.png)
-
+SMETool development architecture, S-1A: Sentinel-1A images and S-2A: Sentinel-2A.
 <ol>
   <li value="1"> SMETool data flow</li>
   ![dataflow](https://user-images.githubusercontent.com/38008180/154926477-386de055-a66e-458f-8442-b2516a7e2ac6.png)
