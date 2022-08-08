@@ -7,7 +7,7 @@
 <li>  - [x] The main workflow  has main data download and processing  functions  using EO-Learn library. </li>
 <li>  - [x] It is  easily customizable and extensible thanks to a high number of adds-on and web services to integrate.</li>
 <li>  - [x] It  offers mass import tools to help you being even more efficient soil moisture estimation task.</li>
-<li>  - [x]It allows the user to access the web application through a web interface and use the map viewer to select any location in the study area  in order to make queries about the geographic database. </li>
+<li>  - [x] It allows the user to access the web application through a web interface and use the map viewer to select any location in the study area  in order to make queries about the geographic database. </li>
 </ul>
  </p>
 
